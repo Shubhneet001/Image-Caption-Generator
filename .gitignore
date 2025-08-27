@@ -1,0 +1,4 @@
+Model/model.keras
+Model/feature_extractor.keras
+Model/image_features.json
+Model/tokenizer.pkl
