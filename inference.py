@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import pickle
 
 
-def generate_and_display_caption(image_path, model_path, tokenizer_path, feature_extractor_path, max_length=34,img_size=224):
+def generate_caption(image_path, model_path, tokenizer_path, feature_extractor_path, max_length=74,img_size=224):
     # Load the trained models and tokenizer
     caption_model = load_model(model_path)
     feature_extractor = load_model(feature_extractor_path)
@@ -35,11 +35,6 @@ def generate_and_display_caption(image_path, model_path, tokenizer_path, feature
         if word == "endseq":
             break
     caption = in_text.replace("startseq", "").replace("endseq", "").strip()
+    return caption
 
-    # Display the image with the generated caption
-    img = load_img(image_path, target_size=(img_size, img_size))
-    plt.figure(figsize=(8, 8))
-    plt.imshow(img)
-    plt.axis('off')
-    plt.title(caption, fontsize=16, color='blue')
-    st.pyplot(plt)
+
